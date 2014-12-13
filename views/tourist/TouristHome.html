@@ -68,16 +68,16 @@
 
 <!-- Gender of local friends -->
 		<select id="gender">			
-			<option selected disabled>Gender</option>
-			<option value="Male">Male</option>
+			<option disabled>Gender</option>
+			<option selected value="Male">Male</option>
 			<option value="Female">Female</option>
 			<option value="Both">Does Not Matter </option>
 		</select>
 
 <!-- Age -->
 		<select id="age" name="Age">
-			<option selected disabled>Age</option>
-			<option value="1">18-25 years old</option>
+			<option disabled>Age</option>
+			<option value="1" selected>18-25 years old</option>
 			<option value="2">26-35 years old</option>
 			<option value="3">above 35 years old</option>
 			<option value="Both">Does Not Matter </option>
@@ -90,33 +90,49 @@
 
 	<script type="text/javascript">
 		var objTo = document.getElementById("container");
-		console.log(data);
+		var moreBtn = document.createElement("button");
 		function addMatch(person) {
+
 			// profile pic
 			var img = document.createElement("img");
 			img.src = "../" + person.profilePic;
 			img.style.height = "100px";
 			objTo.appendChild(img);
 			// name
-			var p = document.createElement("p");
-			p.textContent = person.name;
-			objTo.appendChild(p);
+			var name = document.createElement("p");
+			name.textContent = person.name;
+			objTo.appendChild(name);
+			// bio
+			var bio = document.createElement("p");
+			bio.textContent = person.bio;
+			objTo.appendChild(bio);
 			// category
-			p.textContent = person.category;
-			objTo.appendChild(p);
+			var category = document.createElement("p");
+			category.textContent = "Tour: " + person.category;
+			objTo.appendChild(category);
+			// more button
+			moreBtn.innerHTML = "More";
+			moreBtn.setAttribute("id", "moreBtn");
+			objTo.appendChild(moreBtn);
+			moreBtn.addEventListener('click', function() {
+				console.log(moreBtn.id);
+			})
+
+			// chat button
+			var chatBtn = document.createElement("button");
+			chatBtn.innerHTML = "Chat";
+			objTo.appendChild(chatBtn);
+			// horizontal line
+			var hr = document.createElement("hr");
+			objTo.appendChild(hr);
 		}
 
 		function noMatch(e) {
 			var objTo = document.getElementById("container");
 			var p = document.createElement("p");
 			var retry = document.createElement("button");
-			retry.innerHTML = "Refresh";
 			p.textContent = "Ops, there is no match. Please try again.";
-			retry.addEventListener('click', function() {
-				window.location = "TouristHome.html";
-			})
 			objTo.appendChild(p);
-			objTo.appendChild(retry);
 		}
 
 		function removeNode(e) {
@@ -128,6 +144,14 @@
 			var selected_age = document.getElementById("age").selectedIndex;
 			var match = false;
 			removeNode(document.getElementById("wrapper"));
+			// title
+			var title = document.createElement("h2");
+			title.textContent = "Friends";
+			objTo.appendChild(title);
+			// horizontal line
+			var hr = document.createElement("hr");
+			objTo.appendChild(hr);
+			// loop through data			
 			data.forEach(function(person) {
 				console.log(person, person.age_index, selected_age, person.gender, selected_gender);
 				if (person.age_index == selected_age && person.gender === selected_gender) {
@@ -140,7 +164,13 @@
 			if (match === false) {
 				noMatch();
 			};
-			
+			//refresh button
+			var retry = document.createElement("button");
+			retry.innerHTML = "Refresh";
+			retry.addEventListener('click', function() {
+				window.location = "TouristHome.html";
+			})
+			objTo.appendChild(retry);
 		// 		;
 		// 	console.log(document.getElementById("gender").selectedIndex);
 		})
