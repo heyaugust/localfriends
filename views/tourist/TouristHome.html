@@ -4,6 +4,8 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Local Friends</title>
+	<script type="text/javascript" src="../../js/data.js"></script>
+	
 </head>
  
 <body>
@@ -63,7 +65,7 @@
 		<p> Your Preferred Choice of Local Friends<p>
 
 <!-- Gender of local friends -->
-		<select>			
+		<select id="gender">			
 			<option selected disabled>Gender</option>
 			<option value="Male">Male</option>
 			<option value="Female">Female</option>
@@ -71,20 +73,55 @@
 		</select>
 
 <!-- Age -->
-		<select name="Age">
+		<select id="age" name="Age">
 			<option selected disabled>Age</option>
-			<option>18-25 years old</option>
-			<option>26-35 years old</option>
-			<option>above 35 years old</option>
+			<option value="1">18-25 years old</option>
+			<option value="2">26-35 years old</option>
+			<option value="3">above 35 years old</option>
 			<option value="Both">Does Not Matter </option>
 		</select>
 
 	<div>
-		<button>Select</button>
+		<button id="selected">Select</button>
 	</div>
 
 	<footer>
 	</footer>
+
+	<script type="text/javascript">
+		console.log(data);
+		function addMatch(person) {
+			var img = document.createElement("img");
+			img.src = "../" + person.profilePic;
+			img.style.height = "100px";
+			document.body.appendChild(img);
+			var p = document.createElement("p");
+			p.textContent = person.name;
+			document.body.appendChild(p);
+		}
+
+		function removeNode(e) {
+			e.parentNode.removeChild(e);
+		}
+
+		document.getElementById("selected").addEventListener('click', function(){
+			var selected_age = document.getElementById("age").selectedIndex;
+			removeNode(document.getElementsByTagName("div")[0]);
+			data.forEach(function(person) {
+				console.log(person, person.age_index, selected_age);
+				if (person.age_index == selected_age) {
+					console.log("match", person.name);
+					addMatch(person);
+				} else {
+					console.log("no match", person.name);
+				};
+				// console.log(person.name);
+			});
+			
+		// 		;
+		// 	console.log(document.getElementById("gender").selectedIndex);
+		})
+	</script>
 </body>
 
 </html>
