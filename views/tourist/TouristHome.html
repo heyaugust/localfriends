@@ -103,20 +103,34 @@
 			document.body.appendChild(p);
 		}
 
+		function noMatch(e) {
+			var p = document.createElement("p");
+			var retry = document.createElement("button");
+			retry.innerHTML = "Refresh";
+			p.textContent = "Ops, there is no match. Please try again.";
+			retry.addEventListener('click', function() {
+				window.location = "TouristHome.html";
+			})
+			document.body.appendChild(p);
+			document.body.appendChild(retry);
+		}
+
 		function removeNode(e) {
 			e.parentNode.removeChild(e);
 		}
 
 		document.getElementById("selected").addEventListener('click', function(){
+			var selected_gender = document.getElementById("gender").value;
 			var selected_age = document.getElementById("age").selectedIndex;
 			removeNode(document.getElementsByTagName("div")[0]);
 			data.forEach(function(person) {
-				console.log(person, person.age_index, selected_age);
-				if (person.age_index == selected_age) {
+				console.log(person, person.age_index, selected_age, person.gender, selected_gender);
+				if (person.age_index == selected_age && person.gender === selected_gender) {
 					console.log("match", person.name);
 					addMatch(person);
 				} else {
 					console.log("no match", person.name);
+					noMatch()[0];
 				};
 				// console.log(person.name);
 			});
@@ -125,6 +139,10 @@
 		// 	console.log(document.getElementById("gender").selectedIndex);
 		})
 	</script>
+	<footer>
+		<p>&copy 2014 Local Friends</p>
+	</footer>
+
 </body>
 
 </html>
