@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>LocalFriendsHome</title>
+</head>
+ 
+<body>
+	<div id="wrapper">
+		<header>
+			<h1> Welcome to Singapore! </header>
+		</header>
+	
+
+<!-- HTML for SEARCH BAR -->
+<p> Quick Search Bar </p>
+	<div id="tfheader">
+				<form id="tfnewsearch" method="get" action="http://www.google.com">
+				 <input type="text" class="tftextinput" name="q" size="21" maxlength="120">
+				 <input type="submit" value="search" class="tfbutton">
+				</form>
+	</div>
+		
+
+
+	<div id="featureTours">
+		<p> Editors' Selection</p>
+		<ul>
+        <li><img class="tourimage" src="img/1.jpg", width = 200px,height=200px></li>
+        <li><img class="tourimage" src="img/3.jpg", width = 200px,height=200px></li>
+    	</ul>
+	</div>
+
+		<section>
+			<p> Choose Your Tour! <p>
+			<p> Your Preferred Tour</p>
+		<nav>
+					<ul>
+						<li> <button>choose</button> Food </li>
+						<li> <button>choose</button> Culture </li>
+						<li> <button>choose</button> Nature </li>
+					</ul>
+		</nav>
+		</section>
+
+	<div>
+		<p> Your Price Range SGD</p>
+		<input type="range" min="0" max="50" value="0" step="5" onchange="showValue(this.value)" />
+		<span id="range">0<span>
+			<script type="text/javascript">
+		function showValue(newValue)
+			{
+			document.getElementById("range").innerHTML=newValue;
+			}
+			</script>
+	</div>
+
+	<div>
+		<p> Your Preferred Choice of Local Friends<p>
+		<select>
+			<option value="Male">Male</option>
+  			<option value="Female">Female</option>
+  			<option value="Both">Does Not Matter </option>
+		</select>
+		
+	<div>
+		<button>Select</button>
+	</div>
+
+		<footer>
+			<p> All rights reserved to LocalFriends.2014
+		</footer>
+</body>
+
+</html>
