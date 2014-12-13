@@ -15,10 +15,10 @@
 <!-- HTML for SEARCH BAR -->
 <p> Quick Search Bar </p>
 	<div id="tfheader">
-				<form id="tfnewsearch" method="get" action="http://www.google.com">
-				 <input type="text" class="tftextinput" name="q" size="21" maxlength="120">
-				 <input type="submit" value="search" class="tfbutton">
-				</form>
+		<form id="tfnewsearch" method="get" action="http://www.google.com">
+		 <input type="text" class="tftextinput" name="q" size="21" maxlength="120">
+		 <input type="submit" value="search" class="tfbutton">
+		</form>
 	</div>
 		
 
@@ -26,25 +26,21 @@
 	<div id="featureTours">
 		<p> Editors' Selection</p>
 		<ul>
-        <li><img class="tourimage" src="img/1.jpg", width = 200px,height=200px></li>
-        <li><img class="tourimage" src="img/3.jpg", width = 200px,height=200px></li>
-    	</ul>
+      <li><img class="tourimage" src="img/1.jpg", width = 200px,height=200px></li>
+      <li><img class="tourimage" src="img/3.jpg", width = 200px,height=200px></li>
+  	</ul>
 	</div>
 
-		<section>
-			<p> Choose Your Tour! <p>
-			<p> Your Preferred Tour</p>
-		<nav>
-					<ul>
-						<li> <button>choose</button> Food </li>
-						<li> <button>choose</button> Culture </li>
-						<li> <button>choose</button> Nature </li>
-					</ul>
-		</nav>
-		</section>
+	<section>
+		<p> Choose Your Tour! <p>
+		<p> Your Preferred Tour</p>
+			<input type="checkbox">Food
+			<input type="checkbox">Culture
+			<input type="checkbox">Nature
+	</section>
 
 	<div>
-		<p> Your Price Range SGD</p>
+		<p>Your Price Range SGD</p>
 		<input type="range" min="0" max="50" value="0" step="5" onchange="showValue(this.value)" />
 		<span id="range">0<span>
 			<script type="text/javascript">
@@ -67,9 +63,9 @@
 		<button>Select</button>
 	</div>
 
-		<footer>
-			<p> All rights reserved to LocalFriends.2014
-		</footer>
+	<footer>
+		<p> All rights reserved to LocalFriends 2014
+	</footer>
 </body>
 
 </html>
