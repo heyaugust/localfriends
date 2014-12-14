@@ -5,6 +5,7 @@
 		<title>Local Friends</title>
 		<link rel="stylesheet" type="text/css" href="../../css/Style.css">
 		<script type="text/javascript" src="../../js/data.js"></script>
+		<script type="text/javascript" src="../../js/websocket.js"></script>
 	</head>
 	<!-- Navigation bar -->
 	<div class="nav">
@@ -26,14 +27,18 @@
 			<div class="img"><img src="../../img/zmprofile.jpg" alt="A picture of myself" height=auto width= 120px> </div>
 		</span>
 
+		<section style="clear:both">
+			<hr>
 		<div id="container"></div>
-		
+		</section>
+
 		<input type="text" id="msgTo">
 		<button id="send">Send</button>
 
 	<script type="text/javascript">
 		var objTo = document.getElementById("container");
 		var sendBtn = document.getElementById("send");
+		var msgTo = document.getElementById("msgTo");
 
 		function addMsg(msg) {
 			var p = document.createElement("p");
@@ -47,22 +52,22 @@
 			objTo.appendChild(t);
 		}
 
-		function sendToFriend() {
-			sendBtn.addEventListener('click', function(){
-				var hr = document.createElement("hr");
-			if(input.value){
+		sendBtn.addEventListener('click', function(){
+			var hr = document.createElement("hr");
+			console.log("clicked");
+			if(msgTo.value){
 				var msg = {
-  					from: "Melissa",
+  					from: "Oscar",
   					type: "text",
-  					content: input.value,
+  					content: msgTo.value,
 				}
 				client.send(JSON.stringify(msg));
 				addMsg(msg);
 				objTo.appendChild(hr);
-				input.value = '';
+				msgTo.value = '';
 				}
 			})
-		}
+		
 	</script>
 
 	  <footer class="footer">
