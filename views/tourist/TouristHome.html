@@ -22,14 +22,11 @@
       </ul>
     </div>
 
+  <div id="container"></div>
 	<div id="wrapper">
 		<header>
-			<h1> Welcome to Singapore!</header>
+			<h1> Welcome to Singapore!</h1>
 		</header>
-
-
-		
-<!-- Featured tours -->
 
 <!-- Tour selection -->
 	<section>
@@ -76,11 +73,13 @@
 		<button id="selected">Select</button>
 	</div>
 
+	</div>
+</div>
 	<footer>
+			<p>&copy 2014 Local Friends</p>
 	</footer>
 
-	<script type="text/javascript">
-<<<<<<< HEAD
+<script type="text/javascript">
 		console.log(data);
 		function addMatch(person) {
 			var img = document.createElement("img");
@@ -90,7 +89,8 @@
 			var p = document.createElement("p");
 			p.textContent = person.name;
 			document.body.appendChild(p);
-=======
+		}
+
 		var objTo = document.getElementById("container");
 		var moreBtn = document.createElement("button");
 		function addMatch(person) {
@@ -135,7 +135,6 @@
 			var retry = document.createElement("button");
 			p.textContent = "Ops, there is no match. Please try again.";
 			objTo.appendChild(p);
->>>>>>> FETCH_HEAD
 		}
 
 		function removeNode(e) {
@@ -144,9 +143,6 @@
 
 		document.getElementById("selected").addEventListener('click', function(){
 			var selected_age = document.getElementById("age").selectedIndex;
-<<<<<<< HEAD
-			removeNode(document.getElementsByTagName("div")[0]);
-=======
 			var match = false;
 			removeNode(document.getElementById("wrapper"));
 			// title
@@ -157,20 +153,19 @@
 			var hr = document.createElement("hr");
 			objTo.appendChild(hr);
 			// loop through data			
->>>>>>> FETCH_HEAD
+
 			data.forEach(function(person) {
 				console.log(person, person.age_index, selected_age);
 				if (person.age_index == selected_age) {
 					console.log("match", person.name);
 					addMatch(person);
+					return (match = true);
 				} else {
 					console.log("no match", person.name);
 				};
 				// console.log(person.name);
 			});
-<<<<<<< HEAD
 			
-=======
 			if (match === false) {
 				noMatch();
 			};
@@ -181,9 +176,6 @@
 				window.location = "TouristHome.html";
 			})
 			objTo.appendChild(retry);
->>>>>>> FETCH_HEAD
-		// 		;
-		// 	console.log(document.getElementById("gender").selectedIndex);
 		})
 	</script>
 </body>
