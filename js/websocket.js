@@ -1,5 +1,5 @@
 //create a WebSocket instance and start connecting to the server
-		var client = new WebSocket('ws://localhost:3001');
+		var client = new WebSocket('ws://localhost:3000');
 
 		//when connected
 		client.onopen = function(){

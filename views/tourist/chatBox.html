@@ -22,7 +22,7 @@
   	<h1>Message</h1>
 		<hr>
 
-		<span style = "font-size:40px;font-weight:bold">Zhou Mi</span>
+		<span style = "font-size:40px;font-weight:bold">To: Zhou Mi</span>
 		<span>
 			<div class="img"><img src="../../img/zmprofile.jpg" alt="A picture of myself" height=auto width= 120px> </div>
 		</span>
@@ -67,6 +67,11 @@
 				msgTo.value = '';
 				}
 			})
+
+		client.onmessage = function(event) {
+			console.log(event.data);
+			addMsg(JSON.parse(event.data));	
+		}
 		
 	</script>
 
