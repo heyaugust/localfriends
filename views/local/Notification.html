@@ -4,6 +4,7 @@
 	<head>
 		<meta charset="utf-8"/>
 		<script type="text/javascript" src="../../js/tourist_data.js"></script>
+		<script type="text/javascript" src="../../js/websocket.js"></script>
 		<title> Local Friends</title>
 	</head>
 
@@ -28,6 +29,13 @@
 	<script type="text/javascript">
 		var objTo = document.getElementById("container");
 		console.log(data);
+
+		function addMsg(msg) {
+			var p = document.createElement("p");
+			p.textContent = msg.from + ": " + msg.content;
+			objTo.appendChild(p);
+		}
+
 		function display(person) {
 			data.forEach(function(person) {
 			var img = document.createElement("img");
@@ -37,6 +45,7 @@
 			var deleteBtn = document.createElement("button");
 			var input = document.createElement("input");
 			var sendBtn = document.createElement("button");
+			var hr = document.createElement("hr");
 			
 			// profile pic
 			img.src = "../" + person.profilePic;
@@ -84,6 +93,26 @@
 			sendBtn.addEventListener('click', function() {
 				console.log("send message");
 			});
+
+			sendBtn.addEventListener('click', function(){
+				var hr = document.createElement("hr");
+			if(input.value){
+				var msg = {
+  					from: "Melissa",
+  					type: "text",
+  					content: input.value,
+				}
+				client.send(JSON.stringify(msg));
+				addMsg(msg);
+				objTo.appendChild(hr);
+				input.value = '';
+				sendBtn.setAttribute("style", "display:none");
+				input.setAttribute("style", "display:none");
+				document.getElementById("reply").setAttribute('style', '');
+				document.getElementById("delete").setAttribute('style', '');
+				
+			}
+		})
 
 			// horizontal line
 			var hr = document.createElement("hr");
