@@ -62,8 +62,10 @@
 			})
 
 		client.onmessage = function(event) {
+			var hr = document.createElement("hr");
 			console.log(event.data);
 			addMsg(JSON.parse(event.data));	
+			objTo.appendChild(hr);
 		}
 		
 	</script>

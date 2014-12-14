@@ -28,8 +28,7 @@
 		</span>
 
 		<section style="clear:both">
-			<hr>
-		<div id="container"></div>
+		<div id="container"><hr></div>
 		</section>
 
 		<input type="text" id="msgTo">
@@ -69,8 +68,10 @@
 			})
 
 		client.onmessage = function(event) {
+			var hr = document.createElement("hr");
 			console.log(event.data);
 			addMsg(JSON.parse(event.data));	
+			objTo.appendChild(hr);
 		}
 		
 	</script>
