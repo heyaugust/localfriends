@@ -60,7 +60,7 @@ a:focus {
 
 #intro{	
 	background-image: url(../IMG/3.jpg);
-	background-size:cover;
+	background-size: cover
 }
 
 .intro .slogan {
@@ -95,12 +95,12 @@ a:focus {
 
 /* Media queries */
 
-@media(min-width:400px) {
-    .intro {
+@media(min-width:200px) {
+  .intro {
         height: 100%;
         padding: 0;
     }
-    .intro-text {
+  .intro-text {
         font-size: 25px;
     }
 }
@@ -203,8 +203,8 @@ div.img {
     margin: 5px;
     padding: 5px;
     border: 4px solid navy;
-    height: 150px;
-    width: 300px;
+    height: auto;
+    width: auto;
     float: left;
     text-align: center;
 } 
@@ -219,6 +219,25 @@ div.img a:hover img {
     border: 10px solid navy;
 }
 
+div.img1 {
+    margin: 5px;
+    padding: 5px;
+    border: 4px solid navy;
+    height: 150px;
+    width: 300px;
+    float: left;
+    text-align: center;
+} 
+
+div.img1 img {
+    display: inline;
+    margin: 5px;
+    border: 1px solid navy;
+}
+
+div.img1 a:hover img {
+    border: 10px solid navy;
+}
 /* ===========================
 ---  Local Friends Bio ---
 ============================ */
