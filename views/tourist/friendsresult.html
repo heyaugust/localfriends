@@ -4,14 +4,21 @@
 	<meta charset="utf-8" />
 	<title>Local Friends</title>
 	<link rel="stylesheet" type="text/css" href="../../css/Style.css">
+	<script type="text/javascript" src="../../js/data.js"></script>
 </head>
 
 		<!-- Navigation bar -->
 	<div class="nav">
       <ul>
+<<<<<<< HEAD
       	<li class="tutorials"><a class="active" href="TouristHome.html">Overview</a></li>
         <li class="about"><a href="search.html">Tours</a></li>
         <li class= "about"><a href="localdetails.html">Friends</a></li>
+=======
+        <li><a href="TouristHome.html">Home</a>
+        <li class="tutorials"><a href="search.html">Tours</a></li>
+        <li class= "about"><a class="active" href="friendsresult.html">Friends</a></li>
+>>>>>>> FETCH_HEAD
         <li class="about"><a href="messages.html">Messages</a></li>
         <li class="news"><a href="../login.html">Logout</a></li>
       </ul>
@@ -21,50 +28,57 @@
 
 <h1>Local Friends</h1>
 		<hr>
-		<!-- Melissa Friend 1 -->
-		<!-- profile picture -->
-		<div><img src="../../img/melprofile2.jpg" height="80px" alt="Melissa profile pic"></div>
-		
-		<!-- name -->
-		<span>Melissa</span>
-		
-		<!-- message -->
-		<p>Hi I'm Melissa! I am a foodie!</p>
-		
-		<!-- reply or delete button -->
-		<button>More</button>
-		<button>Chat</button>
-		<hr>
+		<div id="container"></div>
+		<script type="text/javascript">
+			
+			var objTo = document.getElementById("container");
 
-		<!-- Zhou Mi Friend 2-->
-		<!-- profile picture -->
-		<div><img src="../../img/zmprofile.jpg" height="80px" alt="Melissa profile pic"></div>
-		
-		<!-- name -->
-		<span>Zhou Mi</span>
-		
-		<!-- message -->
-		<p>Hello everyone! Join me and exercise in Singapore.</p>
-		
-		<!-- reply or delete button -->
-		<button>More</button>
-		<button>Chat</button>
-		<hr>
+			function display(person) {
+				data.forEach(function(person) {
+				var img = document.createElement("img");
+				var name = document.createElement("p");
+				var bio = document.createElement("p");
+				var moreBtn = document.createElement("button");
+				var chatBtn = document.createElement("button");
+				
+				// profile pic
+				img.src = "../" + person.profilePic;
+				img.style.height = "100px";
+				objTo.appendChild(img);
 
-		<!-- Cheon Loon Friend 3 -->
-		<!-- profile picture -->
-		<div><img src="../../img/clprofile.jpg" height="80px" alt="Melissa profile pic"></div>
-		
-		<!-- name -->
-		<span>Tommy</span>
-		
-		<!-- message -->
-		<p>Wassup!! Welcome to Singapore!</p>
-		
-		<!-- reply or delete button -->
-		<button>More</button>
-		<button>Chat</button>
-		<hr>
+				// name
+				name.textContent = person.name;
+				objTo.appendChild(name);
+
+				// bio
+				bio.textContent = person.bio;
+				objTo.appendChild(bio);
+
+				// category
+				var category = document.createElement("p");
+				category.textContent = "Tour: " + person.category;
+				objTo.appendChild(category);
+
+				// more button
+				moreBtn.innerHTML = "More";
+				moreBtn.setAttribute("id", "moreBtn");
+				objTo.appendChild(moreBtn);
+				moreBtn.addEventListener('click', function() {
+					console.log(moreBtn.id);
+				});
+
+				// chat button
+				chatBtn.innerHTML = "Chat";
+				objTo.appendChild(chatBtn);
+
+				// horizontal line
+				var hr = document.createElement("hr");
+				objTo.appendChild(hr);
+				})
+			}
+			
+			display();
+		</script>
 
 		<footer>
 			<p>&copy 2014 Local Friends</p>
