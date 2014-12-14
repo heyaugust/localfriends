@@ -29,10 +29,23 @@
 		<p>Hi Melissa, I would like to explore Singapore. Where would be a good place to go?</p>
 		
 		<!-- reply or delete button -->
-		<button>Reply</button>
-		<button>Delete</button>
-		
+		<button id="reply">Reply</button>
+		<button id="delete">Delete</button>
+		<input style="display:none" type="text" id="msg">
+		<button id="send" style="display:none">Send</button>
+
 		<hr>
+
+	<script type="text/javascript">
+		document.getElementById("reply").addEventListener('click', function(){
+			document.getElementById("reply").setAttribute('style', 'display:none');
+			document.getElementById("delete").setAttribute('style', 'display:none');
+			document.getElementById("msg").setAttribute('style', '');
+			document.getElementById("send").setAttribute('style', '');
+			console.log("clicked");
+		})
+				
+	</script>
 
 		<footer>
 			<p>&copy 2014 Local Friends</p>

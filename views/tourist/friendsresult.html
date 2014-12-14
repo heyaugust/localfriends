@@ -64,6 +64,9 @@
 				// chat button
 				chatBtn.innerHTML = "Chat";
 				objTo.appendChild(chatBtn);
+				chatBtn.addEventListener('click', function() {
+					console.log("chat");
+				});
 
 				// horizontal line
 				var hr = document.createElement("hr");
