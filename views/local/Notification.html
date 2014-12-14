@@ -21,16 +21,17 @@
 		<h1>Notifications</h1>
 		<hr>
 		
-		<section>
-			<div id="container"></div>
+		<section style="clear:both">
+		<div id="container"></div>
 		</section>
-		<!-- reply or delete button -->
-		<input style="display:none" type="text" id="msg">
-		<button id="send" style="display:none">Send</button>
+
+		<input type="text" id="msgTo">
+		<button id="send">Send</button>
 
 	<script type="text/javascript">
 		var objTo = document.getElementById("container");
-		console.log(data);
+		var sendBtn = document.getElementById("send");
+		var msgTo = document.getElementById("msgTo");
 
 		function addMsg(msg) {
 			var p = document.createElement("p");
@@ -44,156 +45,27 @@
 			objTo.appendChild(t);
 		}
 
-		function display(person) {
-			data.forEach(function(person) {
-			var img = document.createElement("img");
-			var name = document.createElement("p");
-			var msg = document.createElement("p");
-			var replyBtn = document.createElement("button");
-			var deleteBtn = document.createElement("button");
-			var input = document.createElement("input");
-			var sendBtn = document.createElement("button");
+		sendBtn.addEventListener('click', function(){
 			var hr = document.createElement("hr");
-			
-			// profile pic
-			// img.src = "../" + person.profilePic;
-			// img.style.height = "100px";
-			// objTo.appendChild(img);
-
-			// name
-			// name.textContent = person.name;
-			// objTo.appendChild(name);
-
-			// bio
-			// msg.textContent = person.msgToMel;
-			// objTo.appendChild(msg);
-
-			// more button
-			replyBtn.innerHTML = "Reply";
-			replyBtn.setAttribute("id", "reply");
-			objTo.appendChild(replyBtn);
-			replyBtn.addEventListener('click', function(){
-				document.getElementById("reply").setAttribute('style', 'display:none');
-				document.getElementById("delete").setAttribute('style', 'display:none');
-				document.getElementById("msg").setAttribute('style', '');
-				document.getElementById("send").setAttribute('style', '');
-				console.log("clicked");
-			});	
-
-			// chat button
-			deleteBtn.innerHTML = "Delete";
-			deleteBtn.setAttribute("id", "delete");
-			objTo.appendChild(deleteBtn);
-			deleteBtn.addEventListener('click', function() {
-				console.log("delete message");
-			});
-
-			// input text
-			input.setAttribute("style", "display:none");
-			input.setAttribute("id", "msg");
-			objTo.appendChild(input);
-
-			// send button
-			sendBtn.innerHTML = "Send";
-			sendBtn.setAttribute("style", "display:none");
-			sendBtn.setAttribute("id", "send");
-			objTo.appendChild(sendBtn);
-			sendBtn.addEventListener('click', function() {
-				console.log("send message");
-			});
-
-			sendBtn.addEventListener('click', function(){
-				var hr = document.createElement("hr");
-			if(input.value){
+			console.log("clicked");
+			if(msgTo.value){
 				var msg = {
   					from: "Zhou Mi",
   					type: "text",
-  					content: input.value,
+  					content: msgTo.value,
 				}
 				client.send(JSON.stringify(msg));
 				addMsg(msg);
 				objTo.appendChild(hr);
-				input.value = '';
-				sendBtn.setAttribute("style", "display:none");
-				input.setAttribute("style", "display:none");
-				document.getElementById("reply").setAttribute('style', '');
-				document.getElementById("delete").setAttribute('style', '');
+				msgTo.value = '';
 				}
 			})
 
 		client.onmessage = function(event) {
-		console.log(event.data);
-		addMsg(JSON.parse(event.data));	
-		var img = document.createElement("img");
-			var name = document.createElement("p");
-			var msg = document.createElement("p");
-			var replyBtn = document.createElement("button");
-			var deleteBtn = document.createElement("button");
-			var input = document.createElement("input");
-			var sendBtn = document.createElement("button");
-			var hr = document.createElement("hr");
-
-		// more button
-			replyBtn.innerHTML = "Reply";
-			replyBtn.setAttribute("id", "reply");
-			objTo.appendChild(replyBtn);
-			replyBtn.addEventListener('click', function(){
-				document.getElementById("reply").setAttribute('style', 'display:none');
-				document.getElementById("delete").setAttribute('style', 'display:none');
-				document.getElementById("msg").setAttribute('style', '');
-				document.getElementById("send").setAttribute('style', '');
-				console.log("clicked");
-			});	
-
-			// chat button
-			deleteBtn.innerHTML = "Delete";
-			deleteBtn.setAttribute("id", "delete");
-			objTo.appendChild(deleteBtn);
-			deleteBtn.addEventListener('click', function() {
-				console.log("delete message");
-			});
-
-			// input text
-			input.setAttribute("style", "display:none");
-			input.setAttribute("id", "msg");
-			objTo.appendChild(input);
-
-			// send button
-			sendBtn.innerHTML = "Send";
-			sendBtn.setAttribute("style", "display:none");
-			sendBtn.setAttribute("id", "send");
-			objTo.appendChild(sendBtn);
-			sendBtn.addEventListener('click', function() {
-				console.log("send message");
-			});
-
-			sendBtn.addEventListener('click', function(){
-				var hr = document.createElement("hr");
-			if(input.value){
-				var msg = {
-  					from: "Zhou Mi",
-  					type: "text",
-  					content: input.value,
-				}
-				client.send(JSON.stringify(msg));
-				addMsg(msg);
-				objTo.appendChild(hr);
-				input.value = '';
-				sendBtn.setAttribute("style", "display:none");
-				input.setAttribute("style", "display:none");
-				document.getElementById("reply").setAttribute('style', '');
-				document.getElementById("delete").setAttribute('style', '');
-				}
-			})
-		}
-
-			// horizontal line
-			var hr = document.createElement("hr");
-			objTo.appendChild(hr);
-			})
+			console.log(event.data);
+			addMsg(JSON.parse(event.data));	
 		}
 		
-		display();
 	</script>
 
 		<footer class="footer">
