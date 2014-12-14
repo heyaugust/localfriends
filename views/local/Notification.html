@@ -3,10 +3,11 @@
 <link rel="stylesheet" type="text/css" href="../../css/style.css">
 	<head>
 		<meta charset="utf-8"/>
+		<script type="text/javascript" src="../../js/tourist_data.js"></script>
 		<title> Local Friends</title>
 	</head>
 
-	<!-- Notification bar -->
+	<!-- Navigation bar -->
 	<div class="nav">
       <ul>
         <li class="tutorials"><a href="local.html">My Profiles</a></li>
@@ -19,32 +20,78 @@
 		<h1>Notifications</h1>
 		<hr>
 		
-		<!-- profile picture -->
-		<div><img src="../../img/steveprofile.jpg" height="80px"></div>
-		
-		<!-- name -->
-		<span>Steve</span>
-		
-		<!-- message -->
-		<p>Hi Melissa, I would like to explore Singapore. Where would be a good place to go?</p>
-		
+		<div id="container"></div>
 		<!-- reply or delete button -->
-		<button id="reply">Reply</button>
-		<button id="delete">Delete</button>
 		<input style="display:none" type="text" id="msg">
 		<button id="send" style="display:none">Send</button>
 
-		<hr>
-
 	<script type="text/javascript">
-		document.getElementById("reply").addEventListener('click', function(){
-			document.getElementById("reply").setAttribute('style', 'display:none');
-			document.getElementById("delete").setAttribute('style', 'display:none');
-			document.getElementById("msg").setAttribute('style', '');
-			document.getElementById("send").setAttribute('style', '');
-			console.log("clicked");
-		})
-				
+		var objTo = document.getElementById("container");
+		console.log(data);
+		function display(person) {
+			data.forEach(function(person) {
+			var img = document.createElement("img");
+			var name = document.createElement("p");
+			var msg = document.createElement("p");
+			var replyBtn = document.createElement("button");
+			var deleteBtn = document.createElement("button");
+			var input = document.createElement("input");
+			var sendBtn = document.createElement("button");
+			
+			// profile pic
+			img.src = "../" + person.profilePic;
+			img.style.height = "100px";
+			objTo.appendChild(img);
+
+			// name
+			name.textContent = person.name;
+			objTo.appendChild(name);
+
+			// bio
+			msg.textContent = person.msgToMel;
+			objTo.appendChild(msg);
+
+			// more button
+			replyBtn.innerHTML = "Reply";
+			replyBtn.setAttribute("id", "reply");
+			objTo.appendChild(replyBtn);
+			replyBtn.addEventListener('click', function(){
+				document.getElementById("reply").setAttribute('style', 'display:none');
+				document.getElementById("delete").setAttribute('style', 'display:none');
+				document.getElementById("msg").setAttribute('style', '');
+				document.getElementById("send").setAttribute('style', '');
+				console.log("clicked");
+			});	
+
+			// chat button
+			deleteBtn.innerHTML = "Delete";
+			deleteBtn.setAttribute("id", "delete");
+			objTo.appendChild(deleteBtn);
+			deleteBtn.addEventListener('click', function() {
+				console.log("delete message");
+			});
+
+			// input text
+			input.setAttribute("style", "display:none");
+			input.setAttribute("id", "msg");
+			objTo.appendChild(input);
+
+			// send button
+			sendBtn.innerHTML = "Send";
+			sendBtn.setAttribute("style", "display:none");
+			sendBtn.setAttribute("id", "send");
+			objTo.appendChild(sendBtn);
+			sendBtn.addEventListener('click', function() {
+				console.log("send message");
+			});
+
+			// horizontal line
+			var hr = document.createElement("hr");
+			objTo.appendChild(hr);
+			})
+		}
+		
+		display();
 	</script>
 
 		<footer>
