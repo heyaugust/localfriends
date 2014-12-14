@@ -1,88 +1,117 @@
+
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" type="text/css" href="../../css/Style.css">
 	<head>
 		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		 <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Local Friends</title>
-		<link rel="stylesheet" type="text/css" href="../../css/Style.css">
-		<script type="text/javascript" src="../../js/data.js"></script>
 	</head>
+	
 	<!-- Navigation bar -->
 	<div class="nav">
       <ul>
-        <li class="about"><a href="TouristHome.html">Home</a>
+        <li class="about"><a class="active" href="TouristHome.html">Home</a>
         <li class="tutorials"><a href="search.html">Featured Tours</a></li>
-        <li class= "about"><a class="active" href="friendsresult.html">Featured Friends</a></li>
+        <li class= "about"><a href="friendsresult.html">Featured Friends</a></li>
         <li class="about"><a href="messages.html">Messages</a></li>
         <li class="news"><a href="../login.html">Logout</a></li>
       </ul>
-
     </div>
 
-	<body>
-		
+	<body>	
 		<!-- profile -->
-		<span style = "font-size:40px;font-weight:bold" > Zhou Mi</span>
-		<span>
+		 <span style = "font-size:40px;font-weight:bold" > Zhou Mi</span>
+		 <span>
 			<div class="img"><img src="../../img/zmprofile.jpg" alt="A picture of myself" height=auto width= 120px> </P>
-		</span>
-		<div id="localName">
-	</div>
+			</span>
+			
 		</div>
 
 		<!-- stats -->
-		<div>Like: 5</div>
-		<div>Photos: 3</div>
-		<div>Tour: 2</div>
-
+	<span>
+		<div> Like: 5</div>
+		<div> Photos: 3</div>
+		<div> Tour: 2</div>
+	</span>
 		<!-- Bio -->
-		<section>
-			<hr> 
-			<span>Bio</span>
-			<p> 
-				I am cool and I love Singapore!
-			</p>
+			<p><hr></P>
+			<span><div style="font-weight:bold">Bio</div></span>
+			
+			<div> 
+				I am cool and I love Singapore! I can code and I can run!
+			</div>
+		
 			<hr>
 
-		<!-- tours -->
-			<span>Tours</span>
-		<ul>
-			<li>Jurong</li>
-			<li>Orchard</li>
-			<li>Botanic Garden</li>
-		</ul>
+	<!-- tours -->
+	<span> <div style="font-weight:bold">Tours </div></span>
+			<table class="table">
+			<tr>
+				<th>Category</th>
+				<th>Tour</th>
+				<th>Photos </th>
+				<th>Price</th>
+				<th>Hours</th>
+				<th>Remarks</th>
+				<th>Select</th>
+			</tr>
+			<tr>
+				<td>Nature</td>
+				<td>NTU Heritage Walk </td>
+				<th><img src="../../img/3.jpg" width=150px> </th>
+				<td>$20</td>
+				<td>2 hours</td>
+				<td>I will take photos for you. </td>
+				<td><button class="myButton">Select</td>
+			</tr>
+			<tr>
+				<td>Food</td>
+				<td>Home Cooked Malay Food</td>
+				<th><img src="../../img/2.jpg" width=150px> </th>
+				<td>$30</td>
+				<td>3 hours</td>
+				<td>Ice cream included!</td>
+				<td><button class="myButton">Select</td>
+			</tr>
+		</table>
+		
 		<hr>
+	</section>
 
 		<!-- Comments -->
-		Comments
-		<p><img src="../../img/Garyprofile.jpg" alt="A picture of Gary"height="80" width="60"></p>
-		<p>Melissa is a really fun guide!</p>
+		<span> <div style="font-weight:bold">Comments </div></span>
+	<section class="comments">
+		<span><img src="../../img/Garyprofile.jpg" alt="A picture of Gary"height="80px" width="60px"></span>
+		<div style="font-weight:bold">Gary </div>
+		<span>Zhou Mi is a really fun guide!</span>
 
 		<hr>
-
+		
 		<!-- Verification	 -->
-		Verifications
+		<span> <div style="font-weight:bold"> Verification </div></span>
 		<table>
 			<tr>
 				<td>IC: </td>
-				<td>Done</td>
+				<td>S****342A<button>Edit</button></td>
 			</tr> 
 			<tr>
 				<td>Email: </td>
-				<td>Not verified</td>
+				<td><button>Verify</button></td>
 			</tr> 
 			<tr>
 				<td>Phone: </td>
-				<td>Done</td>
+				<td>****3422<button>Edit</button></td>
 			</tr> 
 			<tr>
 				<td>Facebook: </td>
-				<td>Not verified</td>
+				<td><button>Verify</button></td>
 			</tr> 
 		</table>
 
-		</section>
-		<button>Book</button>
-		<button>Chat</button>
+	<hr>	
+	</section>
 	<footer class="footer">
 		<p style="font-size:10px">&copy 2014 Local Friends</p>
 	</footer>
