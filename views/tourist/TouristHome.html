@@ -30,8 +30,9 @@
 
 <!-- Tour selection -->
 	<section>
-		<p> Choose Your Tour! <p>
-		<p> Your Preferred Tour</p>
+		<span> Choose Your Tour! </span>
+		<div><img src="../../img/20.jpg" alt="welcome to SG" height="200" width="400"</div>
+		<div> 1.Your Preferred Tour Type</div>
 			<input type="checkbox">Food
 			<input type="checkbox">Culture
 			<input type="checkbox">Nature
@@ -39,7 +40,7 @@
 
 <!-- Tour prize -->
 	<div>
-		<p>Your Price Range SGD</p>
+		<div>2.Your Price Range SGD</div>
 		<input type="range" min="0" max="50" value="0" step="5" onchange="showValue(this.value)"/>
 		<span id="range">0<span>
 		<script type="text/javascript">
@@ -50,7 +51,7 @@
 	</div>
 
 	<div>
-		<p> Your Preferred Choice of Local Friends<p>
+		<div>3.Your Preferred Choice of Local Friends<div>
 
 <!-- Gender of local friends -->
 		<select id="gender">			
@@ -69,14 +70,14 @@
 			<option value="Both">Does Not Matter </option>
 		</select>
 
-	<div>
+	<p>
 		<button id="selected">Select</button>
-	</div>
+	</p>
 
 	</div>
 </div>
 	<footer>
-			<p>&copy 2014 Local Friends</p>
+			<p style="font-size:10px">&copy 2014 Local Friends</p>
 	</footer>
 
 <script type="text/javascript">
