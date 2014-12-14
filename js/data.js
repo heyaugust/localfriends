@@ -6,7 +6,7 @@ var data = [
 		age_index:'2', 
 		gender:'Female', 
 		profilePic:'../img/zmprofile.jpg', 
-		bio: "Hello everyone! Join me and exercise in Singapore.",
+		bio: "Hello everyone! Join me and exercise in Singapore. I am a HTML5 coder!",
 		like: "10",
 		tour: "3"
 	},
