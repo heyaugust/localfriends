@@ -21,14 +21,48 @@
   	<h1>Message</h1>
 		<hr>
 
-	<div id="container"></div>
-	<span style = "font-size:40px;font-weight:bold" > Zhou Mi</span>
+		<span style = "font-size:40px;font-weight:bold">Zhou Mi</span>
 		<span>
-			<div class="img"><img src="../../img/zmprofile.jpg" alt="A picture of myself" height=auto width= 120px> </P>
+			<div class="img"><img src="../../img/zmprofile.jpg" alt="A picture of myself" height=auto width= 120px> </div>
 		</span>
+
+		<div id="container"></div>
+		
+		<input type="text" id="msgTo">
+		<button id="send">Send</button>
+
 	<script type="text/javascript">
 		var objTo = document.getElementById("container");
+		var sendBtn = document.getElementById("send");
 
+		function addMsg(msg) {
+			var p = document.createElement("p");
+			var t = document.createElement("p");
+			var a = new Date();
+
+			p.textContent = msg.from + ": " + msg.content;
+			t.textContent = "Sent: " + a.toTimeString();
+			t.setAttribute("style", "font-size:10px");
+			objTo.appendChild(p);
+			objTo.appendChild(t);
+		}
+
+		function sendToFriend() {
+			sendBtn.addEventListener('click', function(){
+				var hr = document.createElement("hr");
+			if(input.value){
+				var msg = {
+  					from: "Melissa",
+  					type: "text",
+  					content: input.value,
+				}
+				client.send(JSON.stringify(msg));
+				addMsg(msg);
+				objTo.appendChild(hr);
+				input.value = '';
+				}
+			})
+		}
 	</script>
 
 	  <footer class="footer">
