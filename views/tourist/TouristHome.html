@@ -5,6 +5,8 @@
 	<meta charset="utf-8" />
 	<title>Local Friends</title>
 	<script type="text/javascript" src="../../js/data.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../css/Style.css">
+	
 </head>
  
 <body>
@@ -20,8 +22,6 @@
       </ul>
     </div>
 
-<div id="container"></div>
-
 	<div id="wrapper">
 		<header>
 			<h1> Welcome to Singapore!</header>
@@ -30,8 +30,6 @@
 
 		
 <!-- Featured tours -->
-
-
 
 <!-- Tour selection -->
 	<section>
@@ -54,6 +52,7 @@
 	</script>
 	</div>
 
+	<div>
 		<p> Your Preferred Choice of Local Friends<p>
 
 <!-- Gender of local friends -->
@@ -76,37 +75,20 @@
 	<div>
 		<button id="selected">Select</button>
 	</div>
-</div>
+
+	<footer>
+	</footer>
 
 	<script type="text/javascript">
-		var objTo = document.getElementById("container");
 		console.log(data);
 		function addMatch(person) {
-			// profile pic
 			var img = document.createElement("img");
 			img.src = "../" + person.profilePic;
 			img.style.height = "100px";
-			objTo.appendChild(img);
-			// name
+			document.body.appendChild(img);
 			var p = document.createElement("p");
 			p.textContent = person.name;
-			objTo.appendChild(p);
-			// category
-			p.textContent = person.category;
-			objTo.appendChild(p);
-		}
-
-		function noMatch(e) {
-			var objTo = document.getElementById("container");
-			var p = document.createElement("p");
-			var retry = document.createElement("button");
-			retry.innerHTML = "Refresh";
-			p.textContent = "Ops, there is no match. Please try again.";
-			retry.addEventListener('click', function() {
-				window.location = "TouristHome.html";
-			})
-			objTo.appendChild(p);
-			objTo.appendChild(retry);
+			document.body.appendChild(p);
 		}
 
 		function removeNode(e) {
@@ -114,31 +96,23 @@
 		}
 
 		document.getElementById("selected").addEventListener('click', function(){
-			var selected_gender = document.getElementById("gender").value;
 			var selected_age = document.getElementById("age").selectedIndex;
-			var match = false;
-			removeNode(document.getElementById("wrapper"));
+			removeNode(document.getElementsByTagName("div")[0]);
 			data.forEach(function(person) {
-				console.log(person, person.age_index, selected_age, person.gender, selected_gender);
-				if (person.age_index == selected_age && person.gender === selected_gender) {
+				console.log(person, person.age_index, selected_age);
+				if (person.age_index == selected_age) {
 					console.log("match", person.name);
 					addMatch(person);
-					match = true;
+				} else {
+					console.log("no match", person.name);
 				};
 				// console.log(person.name);
 			});
-			if (match === false) {
-				noMatch();
-			};
 			
 		// 		;
 		// 	console.log(document.getElementById("gender").selectedIndex);
 		})
 	</script>
-	<footer>
-		<p>&copy 2014 Local Friends</p>
-	</footer>
-
 </body>
 
 </html>
