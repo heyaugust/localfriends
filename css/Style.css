@@ -59,7 +59,7 @@ a:focus {
 }
 
 #intro{	
-	background-image: url(../IMG/3.jpg);
+	background-image: url(../IMG/merlion.jpg);
 	background-size: cover;
 }
 
@@ -276,9 +276,11 @@ vertical-align: center}
 }
 
 /* ===========================
----  select Button ---
+---  Footer Button ---
 ============================ */
 
 .footer {
   clear:both;
 }
+
+
