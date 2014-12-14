@@ -36,7 +36,8 @@
 			var a = new Date();
 
 			p.textContent = msg.from + ": " + msg.content;
-			t.textContent = a.toTimeString();
+			t.textContent = "Sent: " + a.toTimeString();
+			t.setAttribute("style", "font-size:10px");
 			objTo.appendChild(p);
 			objTo.appendChild(t);
 		}
