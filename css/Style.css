@@ -59,12 +59,12 @@ a:focus {
 }
 
 #intro{	
-	background-image: url(../IMG/merlion.jpg);
+	background-image: url(../img/merlion.jpg);
 	background-size: cover;
 }
 
 .intro .slogan {
-	padding:250px 0 60px;
+	padding:150px 0 60px;
 	text-align: center;
 	
 }
